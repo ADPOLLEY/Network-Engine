@@ -1,127 +1,93 @@
+<!--GENERAL DOCUMENT INFORMATION TO INCLUDE DOCUMENT TYPE, AND STYLES SHEET, FAVICON IS CURRENTLY NOT APPLUING IDK WHY-->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NETWORK ENGINE</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Network Engine</title>
+    <link rel="shortcut icon" type="image/jpg"
+        href="/Users/andrewpolley/Documents/GitHub/IFT401/WEBSITE-UI/images/purple-fox-logo-icon.ico" />
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a0bcbd31cc.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
 </head>
 
-<body>
-    <nav>
-        <a class="brand" href="#">Network-Engine</a>
-        <ul class="nav">
-            <div class="dropdown">
-                <button class="dropbtn">Dashboard</button>
-                </div>
-            <div class="dropdown">
-            <button class="dropbtn">Inventory</button>
-            <div class="dropdown-content">
-                <a href="#">Inventory</a>
-                <a href="#">Inventory Management</a>
-                </div>
-                </div>
-            <div class="dropdown">
-            <a><button class="dropbtn">Command Line Interface</button></a>
-            <div class="dropdown-content">
-                <a href="#">CLI</a>
-                <a href="#">Config CLI</a>
-                </div>
-                </div>     
-                <div class="dropdown">
-                    <a><button class="dropbtn">Backup</button></a>
-                    <div class="dropdown-content">
-                        <a href="#">Create Backup</a>
-                        <a href="#">Delete Backup</a>
-                        <a href="#">Export Backup</a>
-                        </div>
-                        </div>               
-        </ul>
-    </nav>
-    <main>
-        <section class="banner">
-            <div class="banner-img">
-                <img src="./images/cropped-purple-fox-favicon.png" alt="banner-img">
-            </div>
-            <div class="banner-text">
-                <h1>Welcome to your Network-Engine Dashboard</h1>
-                <br>
-                <p>A high quality, transparent technology partners, with a personal touch.</p>
-                <br>
-                <p>Network-Engine is a group of industry professionals with over 30 years of providing IT knowledge <br> 
-                    to a range of businesses from small mom and pop shops to Fortune 500 enterprises. <br>
-                    Providing architecture and strategic advice, technology roadmaps, security support and <br>
-                    project-based work customized to your needs, Network-Engine uses their knowledge <br>
-                    to drive value and industry best practices to your organization.</p> <br>
+<!--BODY OF THE HTML BEGINS HERE-->
 
-                <p>The icons you see at the bottom of the page will help you navigate throguh the Network-Engine user interface. </p>
+<body>
+
+    <!--SIDE NAV BAR HERE, USING DIV IS IMPORTANT BECASUE THE PAGE IS LATERAL ORGANIZED NOT HORIZONTAL, ADDITIONAL INDEXES ARE ADDED AND ICONS ARE USED OFFSITE-->
+
+    <div class="wrapper">
+        <div class="sidebar">
+            <h2>Network Engine</h2>
+            <ul>
+                <li><a href="index.html"><i class="fa-solid fa-house"></i>Home</a></li>
+                <li><a href="#"><i class="fa-solid fa-address-card"></i>Profile</a></li>
+                <li><a href="Inventory.html"><i class="fa-solid fa-cube"></i>Inventory</a></li>
+                <li><a href="#"><i class="fa-solid fa-cubes"></i>Management</a></li>
+                <li><a href="#"><i class="fa-solid fa-code"></i>CLI</a></li>
+                <li><a href="#"><i class="fa-solid fa-screwdriver-wrench"></i>Config CLI</a></li>
+                <li><a href="#"><i class="fa-solid fa-code-pull-request"></i>Create Backup</a></li>
+                <li><a href="#"><i class="fa-solid fa-code-compare"></i>Export Backup</a></li>
+                <li><a href="#"><i class="fa-solid fa-trash"></i>Delete Backup</a></li>
+                <li><a href="#"><i class="fa-solid fa-map-location-dot"></i>Map</a></li>
+            </ul>
+            <div class="social_media">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://stackoverflow.com" target="_blank"><i class="fa-brands fa-stack-overflow"></i></a>
+                <a href="https://github.com/ADPOLLEY/Network-Engine" target="_blank"><i
+                        class="fa-brands fa-github"></i></a>
             </div>
-        </section>
-        <section class="blog">
-            <a href="#">
-            <div class="card">
-                <img src="./images/inventory.png" alt="storyset images">
-                <h4>INVENTORY</h4>
-            </div>
-            </a>
-            <a href="#">
-            <div class="card" href="#">
-                <img src="./images/inventroy-management.png" alt="storyset images">
-                <h4>INVENTORY MANAGEMENT</h4>
-            </div>
-            </a>
-            <a href="#">
-            <div class="card">
-                <img src="./images/CLI.png" alt="storyset images">
-                <h4>CLI</h4>
-            </div>
-            </a>
-            <a href="#">
-            <div class="card">
-                <img src="./images/config-cli.png" alt="storyset images">
-                <h4>CONFIG CLI</h4>
-            </div>
-            </a>
-            <a href="#">
-            <div class="card">
-                <img src="./images/create-backup.png" alt="storyset images">
-                <h4>CREATE BACKUP</h4>
-            </div>
-            </a>
-            <a href="#">
-            <div class="card">
-                <img src="./images/delete-backup.png" alt="storyset images">
-                <h4>DELETE BACKUP</h4>
-            </div>
-            </a>
-            <a href="#">
-            <div class="card">
-                <img src="./images/export.png" alt="storyset images">
-                <h4>EXPORT BACKUP</h4>
-            </div>
-            </a>
-        </section>
-    </main>
-    <section class="footer">
-        <div class="f-item">
-            <h4></h4>
-            <p></p>
         </div>
-        <div class="f-item">
-            <h4></h4>
-            <p></p>
+        <div class="main_content">
+
+            <div class="header">dashbaord</div>
+
+            <!--MAP BLOCK IS ADDED HERE FROM AN EMBEDDED MAP FROM GOOGLE MAPS. MAPS API REQUIRED MONEY, NOT SURE HOW WE ARE GOING TO IMPORT THE LOCATIONS OF THE DEVICES-->
+
+            <div class="info">
+                <div style="display: block; margin-left: auto; margin-right: auto; width: 50%;"><iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25221.945709382497!2d-122.44240698812094!3d37.79605877584967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808586d510144681%3A0xe960db8a581aacf5!2sThe%20Palace%20Of%20Fine%20Arts!5e0!3m2!1sen!2sus!4v1650298418878!5m2!1sen!2sus"
+                        width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <!--WEATHER BLOACK IS ADDED HERE, WILL NEED TO DELTE ONCE WE FIGURE OUT HOW TO IMPORT IT INTO AND FROM THE DEVICES-->
+
+                <div>
+                    <script>
+                        (function (d, s, id) {
+                            if (d.getElementById(id)) {
+                                if (window.__TOMORROW__) {
+                                    window.__TOMORROW__.renderWidget();
+                                }
+                                return;
+                            }
+                            const fjs = d.getElementsByTagName(s)[0];
+                            const js = d.createElement(s);
+                            js.id = id;
+                            js.src = "https://www.tomorrow.io/v1/widget/sdk/sdk.bundle.min.js";
+
+                            fjs.parentNode.insertBefore(js, fjs);
+                        })(document, 'script', 'tomorrow-sdk');
+                    </script>
+
+                    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+                    <div class="tomorrow" data-location-id="125809" data-language="EN" data-unit-system="IMPERIAL"
+                        data-skin="light" data-widget-type="summary" style="padding-bottom:22px;position:relative;">
+                        <a href="https://www.tomorrow.io/weather/" rel="nofollow noopener noreferrer" target="_blank"
+                            style="position: absolute; bottom: 0; transform: translateX(-50%); left: 50%;">
+                            <img alt="Powered by Tomorrow.io"
+                                src="https://weather-website-client.tomorrow.io/img/powered-by-tomorrow.svg" width="140"
+                                height="15" />
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="f-item">
-            <h4></h4>
-            <p></p>
-        </div>
-    </section>
-    
-    <footer>
-        <h4>&copy copyrights Network-Engine Inc. All right reserved</h4>
-    </footer>
 </body>
 
 </html>
