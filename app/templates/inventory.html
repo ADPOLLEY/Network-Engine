@@ -6,11 +6,14 @@
     <meta charset="UTF-8">
     <title>Network Engine</title>
     <link rel="stylesheet" href= "{{ url_for('static',filename='styles/styles.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!-- HTMX -->
+    <script src="https://unpkg.com/htmx.org@1.5.0"></script>
     <script src="https://kit.fontawesome.com/a0bcbd31cc.js" crossorigin="anonymous"></script>
     
 
     <!--THIS DECLARES THE VARIBLE IN THE TABLE, WILL HAVE TO IMPORTFLASK AND P[OSSIBLY DELTE THIS PORTION]-->
-
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script>
         function myFunction() {
@@ -80,6 +83,45 @@
                 
                 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by IP Address...">
                 
+                
+                <form hx-post="/submit" hx-swap="beforeend" hx-target="#new-device" class="mb-3">
+                    <input type="text" placeholder="Device Hostname" name="hostname" class="form-control mb-3" />
+                    <input type="text" placeholder="Device Subnet" name="subnet" class="form-control mb-3" />
+                    <input type="text" placeholder="Device Username" name="username" class="form-control mb-3" />
+                    <input type="text" placeholder="Device Password" name="password" class="form-control mb-3" />
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Device Hostname</th>
+                        <th scope="col">Device Subnet</th>
+                        <th scope="col">Device Username</th>
+                        <th scope="col">Device Password</th>
+                      </tr>
+                    </thead>
+                    <tbody id="new-device" hx-target="closest tr" hx-swap="outerHTML swap:0.5s"> 
+                        {%for device in Device%}
+                        <tr>
+                            <td>{{device.Device.hostname_id}}</td>
+                            <td>{{device.Device.subnet}}</td>
+                            <td>{{device.Device.username}}</td>
+                            <td>{{device.Device.password}}</td>
+                            <td>
+                                <button class="btn btn-primary" 
+                                    hx-get="/get-edit-form/{{device.Device.hostname_id}}">
+                                    Edit Hostname
+                                </button>
+                            </td>
+                            <td>
+                                <button hx-delete="/delete/{{device.Device.hostname_id}}" class="btn btn-primary">Delete</button>
+                            </td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </body>
 
                 <table id="myTable">
                     <tr class="header">
