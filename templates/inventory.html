@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Network Engine</title>
-    <link rel="stylesheet" href= "styles.css">
+    <link rel="stylesheet" href= "{{ url_for('static',filename='styles/styles.css') }}">
     <script src="https://kit.fontawesome.com/a0bcbd31cc.js" crossorigin="anonymous"></script>
     
 
@@ -50,17 +50,17 @@
         <div class="sidebar">
             <h2>Network Engine</h2>
             <ul>
-                <li><a href="index.html"><i class="fa-solid fa-house"></i>Home</a></li>
-                <li><a href="profile.html"><i class="fa-solid fa-address-card"></i>Profile</a></li>
-                <li><a href="inventory.html"><i class="fa-solid fa-cube"></i>Inventory</a></li>
-                <li><a href="management.html"><i class="fa-solid fa-cubes"></i>Management</a></li>
+                <li><a href="/"><i class="fa-solid fa-house"></i>Home</a></li>
+                <li><a href="{{ url_for('profile') }}"><i class="fa-solid fa-address-card"></i>Profile</a></li>
+                <li><a href="{{ url_for('inventory') }}"><i class="fa-solid fa-cube"></i>Inventory</a></li>
+                <li><a href="{{ url_for('management') }}"><i class="fa-solid fa-cubes"></i>Management</a></li>
                 <li><a href="#"><i class="fa-solid fa-code"></i>Show CLI</a></li>
-                <li><a href="config.html"><i class="fa-solid fa-screwdriver-wrench"></i>Config CLI</a></li>
-                <li><a href="create_backup.html"><i class="fa-solid fa-code-pull-request"></i>Create Backup</a></li>
+                <li><a href="#"><i class="fa-solid fa-screwdriver-wrench"></i>Config CLI</a></li>
+                <li><a href="{{ url_for('create_backup') }}"><i class="fa-solid fa-code-pull-request"></i>Create Backup</a></li>
                 <li><a href="#"><i class="fa-solid fa-code-compare"></i>Export Backup</a></li>
                 <li><a href="#"><i class="fa-solid fa-trash"></i>Delete Backup</a></li>
                 <li><a href="#"><i class="fa-solid fa-map-location-dot"></i>Map</a></li>
-                <li><a href="contact_us.html"><i class="fa-solid fa-phone-flip"></i>Contact Us</a></li>
+                <li><a href="{{ url_for('contact_us') }}"><i class="fa-solid fa-phone-flip"></i>Contact Us</a></li>
             </ul>
 
             <!--FACEBOOK, GITHUB, AND STACKOVERFLOW ARE INCLUIDED HERE, CAN CHANGE THESE TO ANYTHING ELSE IF NEEDED-->
@@ -116,7 +116,7 @@
                
 
             </div>
-            <a href="javascript:demoFromHTML()" class="button">Run Code</a>
+            <!--<a href="javascript:demoFromHTML()" class="button">Run Code</a>/-->
         </div>
     </div>
 </body>
