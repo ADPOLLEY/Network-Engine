@@ -8,13 +8,6 @@
     <link rel="stylesheet" href= "styles.css">
     <script src="https://kit.fontawesome.com/a0bcbd31cc.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript"></script>
-    <script>
-        function SomeDeleteRowFunction(o) {
-         var p=o.parentNode.parentNode;
-             p.parentNode.removeChild(p);
-        }
-        </script>
 
 </head>
 
@@ -49,63 +42,51 @@
         </div>
         <div class="main_content">
 
-            <div class="header">inventory management</div>
+            <div class="header">dashbaord</div>
+
+            <!--MAP BLOCK IS ADDED HERE FROM AN EMBEDDED MAP FROM GOOGLE MAPS. MAPS API REQUIRED MONEY, NOT SURE HOW WE ARE GOING TO IMPORT THE LOCATIONS OF THE DEVICES-->
+
             <div class="info">
+                <div style="display: block; margin-left: auto; margin-right: auto; width: 50%;"><iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25221.945709382497!2d-122.44240698812094!3d37.79605877584967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808586d510144681%3A0xe960db8a581aacf5!2sThe%20Palace%20Of%20Fine%20Arts!5e0!3m2!1sen!2sus!4v1650298418878!5m2!1sen!2sus"
+                        width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
 
-                <!--TABLE FOR IP ADDRESSES BEGIN HERE, THIS WILL NEED TO BE DELTED ONCE FLASK IS IMPORTED, NEED TO FIGURE OUT HOW TO DO THAT-->
-                
-                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by IP Address...">
-                
+                <!--WEATHER BLOCK IS ADDED HERE, WILL NEED TO DELETE ONCE WE FIGURE OUT HOW TO IMPORT IT INTO AND FROM THE DEVICES-->
 
-                <table id="myTable">
-                    <tr class="header">
-                        <th style="width:25%;">Edit/Delete</th>
-                        <th style="width:25%;">IP Address</th>
-                        <th style="width:25%;">Subnet</th>
-                        <th style="width:25%;">Username</th>
-                        <th style="width:25%;">Password</th>
-                    </tr>
-                    <tr>
-                        <td><button class="button" onclick="SomeDeleteRowFunction(this)"><i class="fa-solid fa-trash" style="font-size: 24px;"></i></button>
-                            <button class="button" onclick="SomeDeleteRowFunction(this)"><i class="fa-solid fa-edit" style="font-size: 24px;"></i></button>
-                        </td>
-                        <td>192.168.51.25</td>
-                        <td>255.255.255.0</td>
-                        <td>@dmin</td>
-                        <td>***********</td>
-                    </tr>
-                    <tr>
-                        <td><button class="button" onclick="SomeDeleteRowFunction(this)"><i class="fa-solid fa-trash" style="font-size: 24px;"></i></button>
-                            <button class="button" onclick="SomeDeleteRowFunction(this)"><i class="fa-solid fa-edit" style="font-size: 24px;"></i></button>
-                        </td>
-                        <td>192.168.51.10</td>
-                        <td>255.255.255.0</td>
-                        <td>@dmin</td>
-                        <td>***********</td>
-                    </tr>
-                    <tr>
-                        <td><button class="button" onclick="SomeDeleteRowFunction(this)"><i class="fa-solid fa-trash" style="font-size: 24px;"></i></button>
-                            <button class="button" onclick="SomeDeleteRowFunction(this)"><i class="fa-solid fa-edit" style="font-size: 24px;"></i></button>
-                        </td>
-                        <td>192.168.51.0</td>
-                        <td>255.255.255.0</td>
-                        <td>@dmin</td>
-                        <td>***********</td>
-                    </tr>
-                    <tr>
-                        <td><button class="button" onclick="SomeDeleteRowFunction(this)"><i class="fa-solid fa-trash" style="font-size: 24px;"></i></button>
-                            <button class="button" onclick="SomeDeleteRowFunction(this)"><i class="fa-solid fa-edit" style="font-size: 24px;"></i></button>
-                        </td>
-                        <td>192.168.51.1</td>
-                        <td>255.255.255.0</td>
-                        <td>@dmin</td>
-                        <td>***********</td>
-                    </tr>
-                </table>
+                <div>
+                    <script>
+                        (function (d, s, id) {
+                            if (d.getElementById(id)) {
+                                if (window.__TOMORROW__) {
+                                    window.__TOMORROW__.renderWidget();
+                                }
+                                return;
+                            }
+                            const fjs = d.getElementsByTagName(s)[0];
+                            const js = d.createElement(s);
+                            js.id = id;
+                            js.src = "https://www.tomorrow.io/v1/widget/sdk/sdk.bundle.min.js";
 
+                            fjs.parentNode.insertBefore(js, fjs);
+                        })(document, 'script', 'tomorrow-sdk');
+                    </script>
+
+                    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+                    <div class="tomorrow" data-location-id="125809" data-language="EN" data-unit-system="IMPERIAL"
+                        data-skin="light" data-widget-type="summary" style="padding-bottom:22px;position:relative;">
+                        <a href="https://www.tomorrow.io/weather/" rel="nofollow noopener noreferrer" target="_blank"
+                            style="position: absolute; bottom: 0; transform: translateX(-50%); left: 50%;">
+                            <img alt="Powered by Tomorrow.io"
+                                src="https://weather-website-client.tomorrow.io/img/powered-by-tomorrow.svg" width="140"
+                                height="15" />
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 </body>
 
 
