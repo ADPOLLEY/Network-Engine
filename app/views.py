@@ -10,8 +10,8 @@ def home():
 @app.route("/inventory", methods=["GET"])
 def inventory():
     """Serve inventory template."""
-    device = db.session.query(Device).filter(Device.hostname_id == Device.hostname_id).all()
-    return render_template("inventory.html", device=device)
+    devices = db.session.query(Device).all()
+    return render_template("inventory.html", devices=devices)
 
 @app.route("/submit", methods=["POST"])
 def submit():
@@ -43,7 +43,7 @@ def submit():
         <td>
             <button class="btn btn-primary"
                 hx-get="/get-edit-form/{global_device_object.hostname_id}">
-                Edit Title
+                Edit Hostname
             </button>
         </td>
         <td>
@@ -58,15 +58,15 @@ def submit():
 
 @app.route("/delete/<int:id>", methods=["DELETE"])
 def delete_device(id):
-    device = Device.query.get(id)
+    device = Device.query(id)
     db.session.delete(device)
     db.session.commit()
 
     return ""
 
 @app.route("/get-edit-form/<int:id>", methods=["GET"])
-def get_edit_form(hostname_id):
-    device = Device.query.get(hostname_id)
+def get_edit_form(id):
+    device = Device.query.get(id)
 
     response = f"""
     <tr hx-trigger='cancel' class='editing' hx-get="/get-book-row/{id}">

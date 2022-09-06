@@ -37,7 +37,30 @@
                 }
             }
         }
-    </script> 
+    </script>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        tr.htmx-swapping td {
+            opacity: 0;
+            transition: opacity 0.5s ease-out;
+        }
+
+        td, th {
+            border: 1px solid #383737;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+    
 
 </head>
 
@@ -100,65 +123,29 @@
                       </tr>
                     </thead>
                     <tbody id="new-device" hx-target="closest tr" hx-swap="outerHTML swap:0.5s"> 
-                        {%for device in Device%}
+                        {%for device in devices%}
                         <tr>
-                            <td>{{device.Device.hostname_id}}</td>
-                            <td>{{device.Device.subnet}}</td>
-                            <td>{{device.Device.username}}</td>
-                            <td>{{device.Device.password}}</td>
+                            <td>{{device.hostname_id}}</td>
+                            <td>{{device.subnet}}</td>
+                            <td>{{device.username}}</td>
+                            <td>{{device.password}}</td>
                             <td>
                                 <button class="btn btn-primary" 
-                                    hx-get="/get-edit-form/{{device.Device.hostname_id}}">
+                                    hx-get="/get-edit-form/{{device.hostname_id}}">
                                     Edit Hostname
                                 </button>
                             </td>
                             <td>
-                                <button hx-delete="/delete/{{device.Device.hostname_id}}" class="btn btn-primary">Delete</button>
+                                <button class="btn btn-primary"
+                                    hx-delete="/delete/{{device.hostname_id}}">
+                                    Delete
+                                </button>
                             </td>
                         </tr>
                         {%endfor%}
                     </tbody>
                 </table>
-            </body>
-
-                <table id="myTable">
-                    <tr class="header">
-                        <th style="width:25%;">IP Address</th>
-                        <th style="width:25%;">Subnet</th>
-                        <th style="width:25%;">Username</th>
-                        <th style="width:25%;">Password</th>
-                    </tr>
-                    <tr>
-                        <td>192.168.51.25</td>
-                        <td>255.255.255.0</td>
-                        <td>@dmin</td>
-                        <td>***********</td>
-                    </tr>
-                    <tr>
-                        <td>192.168.51.10</td>
-                        <td>255.255.255.0</td>
-                        <td>@dmin</td>
-                        <td>***********</td>
-                    </tr>
-                    <tr>
-                        <td>192.168.51.0</td>
-                        <td>255.255.255.0</td>
-                        <td>@dmin</td>
-                        <td>***********</td>
-                    </tr>
-                    <tr>
-                        <td>192.168.51.1</td>
-                        <td>255.255.255.0</td>
-                        <td>@dmin</td>
-                        <td>***********</td>
-                    </tr>
-                </table>
-
-                <!--THE BUTTON IS A PLACE HOLDER WHERE THE WORKING ONE WILL GO-->
-                <button onclick="javascript:demoFromHTML()">Export as PDF</button>
-
             </div>
-            <!--<a href="javascript:demoFromHTML()" class="button">Run Code</a>/-->
         </div>
     </div>
 </body>
