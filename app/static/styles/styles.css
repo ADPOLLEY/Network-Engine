@@ -93,6 +93,7 @@ body {
 .wrapper .main_content {
     width: 100%;
     margin-left: 200px;
+    background-color: #f3f5f9;
 }
 
 .wrapper .main_content .header {

@@ -54,10 +54,10 @@
                 <li><a href="/"><i class="fa-solid fa-house"></i>Home</a></li>
                 <li><a href="{{ url_for('profile') }}"><i class="fa-solid fa-address-card"></i>Profile</a></li>
                 <li><a href="{{ url_for('inventory') }}"><i class="fa-solid fa-cube"></i>Inventory</a></li>
-                <li><a href="{{ url_for('management') }}"><i class="fa-solid fa-cubes"></i>Management</a></li>
+                <!--<li><a href="{{ url_for('management') }}"><i class="fa-solid fa-cubes"></i>Management</a></li>-->
                 <li><a href="{{ url_for('show_cli') }}"><i class="fa-solid fa-code"></i>Show CLI</a></li>
                 <li><a href="{{ url_for('config') }}"><i class="fa-solid fa-screwdriver-wrench"></i>Config CLI</a></li>
-                <li><a href="{{ url_for('create_backup') }}"><i class="fa-solid fa-code-pull-request"></i>Create Backup</a></li>
+                <li><a href="{{ url_for('config_backup') }}"><i class="fa-solid fa-code-pull-request"></i>Config Backup</a></li>
                 <!--<li><a href="{{ url_for('export_backup') }}"><i class="fa-solid fa-code-compare"></i>Export Backup</a></li>-->
                 <!--<li><a href="{{ url_for('delete_backup') }}"><i class="fa-solid fa-trash"></i>Delete Backup</a></li>-->
                 <li><a href="#"><i class="fa-solid fa-map-location-dot"></i>Map</a></li>
@@ -82,6 +82,7 @@
                 <form hx-post="/submit" hx-swap="beforeend" hx-target="#new-device" class="mb-3">
                     <input type="text" placeholder="Device Hostname" name="hostname" class="form-control mb-3" />
                     <input type="text" placeholder="Device Subnet" name="subnet" class="form-control mb-3" />
+                    <input type="text" placeholder="Device Model" name="model" class="form-control mb-3" />
                     <input type="text" placeholder="Device Username" name="username" class="form-control mb-3" />
                     <input type="text" placeholder="Device Password" name="password" class="form-control mb-3" />
                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -92,6 +93,7 @@
                       <tr>
                         <th scope="col">Device Hostname</th>
                         <th scope="col">Device Subnet</th>
+                        <th scope="col">Device Model</th>
                         <th scope="col">Device Username</th>
                         <th scope="col">Device Password</th>
                       </tr>
@@ -101,6 +103,7 @@
                         <tr>
                             <td>{{device.hostname_id}}</td>
                             <td>{{device.subnet}}</td>
+                            <td>{{device.model}}</td>
                             <td>{{device.username}}</td>
                             <td>{{device.password}}</td>
                             <td>
