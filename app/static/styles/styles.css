@@ -31,6 +31,14 @@ body {
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 30px;
+    height: 42px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 25px;
+}
+
+.wrapper .sidebar ul {
+    padding: 0px;
 }
 
 .wrapper .sidebar ul li {
@@ -38,11 +46,15 @@ body {
     border-bottom: 1px solid #bdb8d7;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
+    height: 50px;
+    line-height: 1.5;
 }
 
 .wrapper .sidebar ul li a {
     color: #bdb8d7;
     display: block;
+    height: 24px;
+    text-decoration: none;
 }
 
 .wrapper .sidebar ul li a .fa-solid {
@@ -81,6 +93,7 @@ body {
 .wrapper .main_content {
     width: 100%;
     margin-left: 200px;
+    background-color: #f3f5f9;
 }
 
 .wrapper .main_content .header {
@@ -89,6 +102,8 @@ body {
     background: #fff;
     color: #717171;
     border-bottom: 1px solid #e0e4e8;
+    height: 57px;
+    line-height: 1.5;
 }
 
 .wrapper .main_content .info {
@@ -150,10 +165,6 @@ body {
     /* Add a grey background color to the table header and on hover */
     background-color: #f1f1f1;
 }
-
-
-
-
 
 .profile {
     position: relative;

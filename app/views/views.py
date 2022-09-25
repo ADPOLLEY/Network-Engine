@@ -1,6 +1,6 @@
 from app import app, db
 from flask import redirect, render_template, request, jsonify
-from app.models import Device
+from app.models.models import Device
 
 @app.route("/", methods=["GET"])
 def home():
@@ -12,13 +12,14 @@ def inventory():
     """Serve inventory template."""
     devices = db.session.query(Device).all()
     return render_template("inventory.html", devices=devices)
-
+1
 @app.route("/submit", methods=["POST"])
 def submit():
     global_device_object = Device()
 
     hostname = request.form["hostname"]
     subnet = request.form["subnet"]
+    model = request.form["model"]
     username = request.form["username"]
     password = request.form["password"]
 
@@ -29,7 +30,7 @@ def submit():
 
     device = Device(hostname_id=hostname)
     hostname_id = hostname
-    device = Device(hostname_id=hostname_id, subnet=subnet, username=username, password=password)
+    device = Device(hostname_id=hostname_id, subnet=subnet, model=model, username=username, password=password)
     db.session.add(device)
     db.session.commit()
     global_device_object = device
@@ -38,6 +39,7 @@ def submit():
     <tr>
         <td>{hostname}</td>
         <td>{subnet}</td>
+        <td>{model}</td>
         <td>{username}</td>
         <td>{password}</td>
         <td>
@@ -72,6 +74,7 @@ def get_edit_form(id):
     <tr hx-trigger='cancel' class='editing' hx-get="/get-book-row/{id}">
   <td><input name="hostname" value="{device.hostname_id}"/></td>
   <td>{device.subnet}</td>
+  <td>{device.model}</td>
   <td>{device.username}</td>
   <td>{device.password}</td>
   <td>
@@ -94,6 +97,7 @@ def get_device_row(id):
     <tr>
         <td>{device.hostname_id}</td>
         <td>{device.subnet}</td>
+        <td>{device.model}</td>
         <td>{device.username}</td>
         <td>{device.password}</td>
         <td>
@@ -124,6 +128,7 @@ def update_device(id):
     <tr>
         <td>{device.hostname_id}</td>
         <td>{device.subnet}</td>
+        <td>{device.model}</td>
         <td>{device.username}</td>
         <td>{device.password}</td>
         <td>
@@ -172,10 +177,10 @@ def config():
     """Serve profile template."""
     return render_template("config.html")
 
-@app.route("/create_backup")
-def create_backup():
+@app.route("/config_backup")
+def config_backup():
     """Serve profile template."""
-    return render_template("create_backup.html")
+    return render_template("config_backup.html")
 
 @app.route("/export_backup")
 def export_backup():
