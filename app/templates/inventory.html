@@ -11,10 +11,11 @@
     <!-- HTMX -->
     <script src="https://unpkg.com/htmx.org@1.5.0"></script>
     <script src="https://kit.fontawesome.com/a0bcbd31cc.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     
 
     <!--THIS DECLARES THE VARIBLE IN THE TABLE, WILL HAVE TO IMPORTFLASK AND P[OSSIBLY DELTE THIS PORTION]-->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <!--<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script>
         function myFunction() {
             var input, filter, table, tr, td, i, txtValue;
@@ -36,32 +37,8 @@
                     }
                 }
             }
-        }
+        }-->
     </script>
-    <style>
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        tr.htmx-swapping td {
-            opacity: 0;
-            transition: opacity 0.5s ease-out;
-        }
-
-        td, th {
-            border: 1px solid #383737;
-            text-align: left;
-            padding: 8px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-    </style>
-    
-
 </head>
 
 <!--BODY OF THE HTML BEGINS HERE-->
@@ -86,9 +63,6 @@
                 <li><a href="#"><i class="fa-solid fa-map-location-dot"></i>Map</a></li>
                 <li><a href="{{ url_for('contact_us') }}"><i class="fa-solid fa-phone-flip"></i>Contact Us</a></li>
             </ul>
-
-            <!--FACEBOOK, GITHUB, AND STACKOVERFLOW ARE INCLUIDED HERE, CAN CHANGE THESE TO ANYTHING ELSE IF NEEDED-->
-
             <div class="social_media">
                 <a href="#"><i class="fa-brands fa-facebook"></i></a>
                 <a href="https://stackoverflow.com" target="_blank"><i class="fa-brands fa-stack-overflow"></i></a>
@@ -98,11 +72,11 @@
         </div>
         <div class="main_content">
             <div class="header">inventory</div>
-            <div class="info" id="info">
+            <div class="info">
 
                 <!--TABLE FOR IP ADDRESSES BEGIN HERE, THIS WILL NEED TO BE DELTED ONCE FLASK IS IMPORTED, NEED TO FIGURE OUT HOW TO DO THAT-->
                 
-                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by IP Address...">
+                <!--<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by IP Address...">-->
                 
                 
                 <form hx-post="/submit" hx-swap="beforeend" hx-target="#new-device" class="mb-3">
