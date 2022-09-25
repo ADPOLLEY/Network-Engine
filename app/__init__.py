@@ -9,7 +9,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
 
-from app import views
+from app.views import views
 from app.models import models
 
 db.init_app(app)
