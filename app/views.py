@@ -12,7 +12,7 @@ def inventory():
     """Serve inventory template."""
     devices = db.session.query(Device).all()
     return render_template("inventory.html", devices=devices)
-
+1
 @app.route("/submit", methods=["POST"])
 def submit():
     global_device_object = Device()
