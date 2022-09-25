@@ -1,6 +1,6 @@
 from app import app, db
 from flask import redirect, render_template, request, jsonify
-from app.models import Device
+from app.models.models import Device
 
 @app.route("/", methods=["GET"])
 def home():
