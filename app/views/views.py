@@ -147,11 +147,6 @@ def update_device(id):
     """
     return response
 
-@app.route("/config")
-def configy():
-    """Serve config template."""
-    return render_template("config.html")
-
 @app.route("/contact_us")
 def contact_us():
     """Serve contact_us template."""
