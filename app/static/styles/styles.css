@@ -233,3 +233,247 @@ body {
     flex: column
     
 }
+
+
+.container{
+    width: auto;
+    background: #fff;
+    border-radius: 6px;
+    padding: 20px 60px 30px 40px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  .container .content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .container .content .left-side{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    position: relative;
+  }
+  .content .left-side::before{
+    content: '';
+    position: absolute;
+    height: 70%;
+    width: 2px;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #afafb6;
+  }
+  .content .left-side .details{
+    margin: 14px;
+    text-align: center;
+  }
+  .content .left-side .details i{
+    font-size: 30px;
+    color: #594f8d;
+    margin-bottom: 10px;
+  }
+  .content .left-side .details .topic{
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .content .left-side .details .text-one,
+  .content .left-side .details .text-two{
+    font-size: 14px;
+    color: #afafb6;
+  }
+  .container .content .right-side{
+    width: 75%;
+    margin-left: 75px;
+  }
+  .content .right-side .topic-text{
+    font-size: 23px;
+    font-weight: 600;
+    color: #594f8d;
+  }
+  .right-side .input-box{
+    height: 50px;
+    width: 100%;
+    margin: 12px 0;
+  }
+  .right-side .input-box input,
+  .right-side .input-box textarea{
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: #F0F1F8;
+    border-radius: 6px;
+    padding: 0 15px;
+    resize: none;
+  }
+  .right-side .message-box{
+    min-height: 110px;
+  }
+  .right-side .input-box textarea{
+    padding-top: 6px;
+  }
+  .right-side .button{
+    display: inline-block;
+    margin-top: 12px;
+  }
+  .right-side .button input[type="button"]{
+    color: #fff;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    background: #594f8d;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .button input[type="button"]:hover{
+    background: #594f8d;
+  }
+  
+  @media (max-width: auto) {
+    .container{
+      width: auto;
+      padding: 30px 40px 40px 35px ;
+    }
+    .container .content .right-side{
+     width: auto;
+     margin-left: 55px;
+  }
+  }
+  @media (max-width: 820px) {
+    .container{
+      margin: 40px 0;
+      height: 100%;
+    }
+    .container .content{
+      flex-direction: column-reverse;
+    }
+   .container .content .left-side{
+     width: 100%;
+     flex-direction: row;
+     margin-top: 40px;
+     justify-content: center;
+     flex-wrap: wrap;
+   }
+   .container .content .left-side::before{
+     display: none;
+   }
+   .container .content .right-side{
+     width: 100%;
+     margin-left: 0;
+   }
+  }
+  
+  
+
+.icon {
+    padding-top: 6px;
+  }
+  
+  .profile {
+    color: #fff;
+    padding-left: 10px;
+    padding-top: 11px;
+    position: absolute;
+  }
+  
+  
+  
+  .right {
+    width: 590px;
+  }
+  
+  .avatar {
+    margin-left: 5px;
+    padding: 12px;
+  }
+  
+  h3 {
+    color: #000000;
+    opacity: 0.7;
+    letter-spacing: 0.5px;
+    width: 100px;
+    font-size: 0.9rem;
+    margin: 0 0 0 49px;
+  }
+  
+  .form {
+    margin-left: 200px;
+    margin-top: -150px;
+    margin-bottom: 40px;
+    width: 310px;
+  }
+  
+  label {
+    letter-spacing: 0.75px;
+    font-size: 0.9rem;
+    color: #000000;
+    opacity: 0.7;
+  }
+  
+  input {
+    padding-bottom: 5px;
+    padding-top: 16px;
+    margin-left: 0px;
+    width: 100%;
+    background-color: #f3f5f9;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #000000;
+    letter-spacing: 0.29px;
+    color: #292b43;
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+  
+  .field {
+    padding-bottom: 25px;
+  }
+  
+  .field:last-child {
+    padding-bottom: 15px;
+  }
+  
+  .bottom {
+    margin-left: 200px;
+  }
+  
+  button {
+    width: 150px;
+    height: 45px;
+    bottom: 20px;
+    border: none;
+  }
+  
+  .button_left {
+    margin-right: 5px;
+    background-color: #4b4276;
+    font-size: 14px;
+    color: #fff;
+    letter-spacing: 0.5px;
+    font-weight: 300;
+  }
+  
+  .button_right {
+    margin-left: 5px;
+    background-color: #eaeaea;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    font-weight: 300;
+    color: #7376a3;
+    opacity: 0.8;
+  }
+  
+  button:hover {
+    cursor: pointer;
+  }
+  
+  button:focus {
+    outline: 0;
+  }
