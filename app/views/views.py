@@ -45,7 +45,7 @@ def submit():
         <td>
             <button class="btn btn-primary"
                 hx-get="/get-edit-form/{global_device_object.hostname_id}">
-                Edit Hostname
+                Edit Device
             </button>
         </td>
         <td>
@@ -74,10 +74,10 @@ def get_edit_form(hostname_id):
     response = f"""
     <tr hx-trigger='cancel' class='editing' hx-get="/get-book-row/{hostname_id}">
   <td><input name="hostname_id" value="{device.hostname_id}"/></td>
-  <td>{device.subnet}</td>
-  <td>{device.model}</td>
-  <td>{device.username}</td>
-  <td>{device.password}</td>
+  <td><input name="subnet" value="{device.subnet}"/></td>
+  <td><input name="model" value="{device.model}"/></td>
+  <td><input name="username" value="{device.username}"/></td>
+  <td><input name="password" value="{device.password}"/></td>
   <td>
     <button class="btn btn-primary" hx-get="/get-book-row/{hostname_id}">
       Cancel
@@ -104,7 +104,7 @@ def get_device_row(hostname_id):
         <td>
             <button class="btn btn-primary"
                 hx-get="/get-edit-form/{hostname_id}">
-                Edit Hostname
+                Edit Device
             </button>
         </td>
         <td>
@@ -120,6 +120,10 @@ def get_device_row(hostname_id):
 @app.route("/update/<hostname_id>", methods=["PUT"])
 def update_device(hostname_id):
     db.session.query(Device).filter(Device.hostname_id == hostname_id).update({"hostname_id": request.form["hostname_id"]})
+    db.session.query(Device).filter(Device.hostname_id == hostname_id).update({"subnet": request.form["subnet"]})
+    db.session.query(Device).filter(Device.hostname_id == hostname_id).update({"model": request.form["model"]})
+    db.session.query(Device).filter(Device.hostname_id == hostname_id).update({"username": request.form["username"]})
+    db.session.query(Device).filter(Device.hostname_id == hostname_id).update({"password": request.form["password"]})
     db.session.commit()
 
     hostname_id = request.form["hostname_id"]
@@ -135,7 +139,7 @@ def update_device(hostname_id):
         <td>
             <button class="btn btn-primary"
                 hx-get="/get-edit-form/{hostname_id}">
-                Edit Hostname
+                Edit Device
             </button>
         </td>
         <td>
