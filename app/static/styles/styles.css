@@ -234,7 +234,6 @@ body {
     
 }
 
-
 .container{
     width: auto;
     background: #fff;
@@ -370,8 +369,6 @@ body {
    }
   }
   
-  
-
 .icon {
     padding-top: 6px;
   }
@@ -382,8 +379,6 @@ body {
     padding-top: 11px;
     position: absolute;
   }
-  
-  
   
   .right {
     width: 590px;
@@ -478,7 +473,19 @@ body {
     outline: 0;
   }
 
-  tr.htmx-swapping td {
+tr.htmx-swapping td {
     opacity: 0;
-    transition: opacity 1s ease-out;
-  }
+    transition: opacity .25s ease-out;
+}
+
+.btn-primary {
+    background-color: #4b4276;
+    color: #fff;
+    letter-spacing: 0.5px;
+    font-weight: 300;
+}  
+
+.btn-primary {
+  background-color: #4b4276 !important;
+  border-color: #fff;
+}

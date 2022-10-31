@@ -170,12 +170,14 @@ def profile():
 @app.route("/show_cli")
 def show_cli():
     """Serve profile template."""
-    return render_template("show_cli.html")
+    devices = db.session.query(Device).all()
+    return render_template("show_cli.html", devices=devices)
 
 @app.route("/config")
 def config():
-    """Serve profile template."""
-    return render_template("config.html")
+    """Serve config template."""
+    devices = db.session.query(Device).all()
+    return render_template("config.html", devices=devices)
 
 @app.route("/config_backup")
 def config_backup():

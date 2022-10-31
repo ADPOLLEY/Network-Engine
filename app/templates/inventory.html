@@ -12,33 +12,6 @@
     <script src="https://unpkg.com/htmx.org@1.5.0"></script>
     <script src="https://kit.fontawesome.com/a0bcbd31cc.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    
-
-    <!--THIS DECLARES THE VARIBLE IN THE TABLE, WILL HAVE TO IMPORTFLASK AND P[OSSIBLY DELTE THIS PORTION]-->
-    <!--<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script>
-        function myFunction() {
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("myInput");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("myTable");
-            tr = table.getElementsByTagName("tr");
-
-            // A LOOP FOR THE FILTER FOR INVENTORY PAGE, JAVASCRIPTED IS USED AND NEED TO FIGURE OUT HOW TO IMPORT FLASK AND OTHERS INTO HTML
-
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[0];
-                if (td) {
-                    txtValue = td.textContent || td.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
-        }-->
-    </script>
 </head>
 
 <!--BODY OF THE HTML BEGINS HERE-->
@@ -77,10 +50,6 @@
                 <!--TABLE FOR IP ADDRESSES BEGIN HERE, THIS WILL NEED TO BE DELTED ONCE FLASK IS IMPORTED, NEED TO FIGURE OUT HOW TO DO THAT-->
                 
                 <!--<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by IP Address...">-->
-                tr.htmx-swapping td {
-  opacity: 0;
-  transition: opacity 1s ease-out;
-}
                 
                 <form hx-post="/submit" hx-swap="beforeend" hx-target="#new-device" class="mb-3">
                     <input type="text" placeholder="Device Hostname" name="hostname" class="form-control mb-3" />

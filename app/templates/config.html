@@ -4,13 +4,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <title>Network Engine</title>
     <link rel="stylesheet" href= "{{ url_for('static',filename='styles/styles.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!-- HTMX -->
+    <script src="https://unpkg.com/htmx.org@1.5.0"></script>
     <script src="https://kit.fontawesome.com/a0bcbd31cc.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    
-
 </head>
 
 <!--BODY OF THE HTML BEGINS HERE-->
@@ -45,17 +46,48 @@
         <div class="main_content">
 
             <div class="header">Config CLI</div>
-
-            <div id="container">
-                <output></output>
-                <div id="input-line" class="input-line">
-                  <div class="prompt"></div><div><input class="cmdline" autofocus /></div>
-                </div>
-              </div>
-              <script src="http://www.codehelper.io/api/ips/?js"></script>
-              <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-              <script src="http://s.codepen.io/AndrewBarfield/pen/LEbPJx.js"></script>
+            <div class="info">
+                <form>
+                    <div>
+                      <label for="uname">Configuration Commands in seperate lines: </label>
+                      <br>
+                      <textarea
+                        type="text"
+                        id="showCLIinput"
+                        name="showCLIinput"
+                        rows="4" 
+                        cols="50"
+                        required
+                        minRows="5"
+                        minlength="4"
+                        ></textarea>
+                      <span class="validity"></span>
+                    </div>
+                    <div hx-include="#checked-contacts" hx-target="#new-device">
+                        <a class="btn btn-primary" hx-put="/activate">Send Command</a>
+                    </div>
+                </form>
+                
+                <form id="checked-contacts">
+                <table class="table">
+                    <thead>
+                        <tr>
+                        <th></th>
+                        <th scope="col">Device Hostname</th>
+                        </tr>
+                    </thead>
+                    <tbody id="new-device" hx-target="closest tr" hx-swap="outerHTML swap:0.5s"> 
+                        {%for device in devices%}
+                        <tr>
+                            <td><input type='checkbox' name='ids' value='0'></td>
+                            <td>{{device.hostname_id}}</td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+                </form>
             </div>
         </div>
     </body>
 </html>
+
