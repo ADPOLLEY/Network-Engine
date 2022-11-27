@@ -62,28 +62,27 @@
                             ></textarea>
                           <span class="validity"></span>
                         </div>
-                        <div hx-include="#checked-contacts" hx-target="#new-device">
-                            <a class="btn btn-primary" hx-put="/activate">Send Command</a>
-                        </div>
-                    </form>
-                    
-                    <form id="checked-contacts">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                            <th></th>
-                            <th scope="col">Device Hostname</th>
-                            </tr>
-                        </thead>
-                        <tbody id="new-device" hx-target="closest tr" hx-swap="outerHTML swap:0.5s"> 
-                            {%for device in devices%}
-                            <tr>
-                                <td><input type='checkbox' name='ids' value='0'></td>
-                                <td>{{device.hostname_id}}</td>
-                            </tr>
-                            {%endfor%}
-                        </tbody>
-                    </table>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                <th></th>
+                                <th scope="col">Device Hostname</th>
+                                </tr>
+                            </thead>
+                            <tbody id="new-device" hx-target="closest tr" hx-swap="outerHTML swap:0.5s"> 
+                                {%for device in devices%}
+                                <tr>
+                                    <td>
+                                        <button class="btn btn-primary" 
+                                            hx-put="/showcommand/{{device.hostname_id}}">
+                                            Send Command
+                                        </button>
+                                    </td>
+                                    <td>{{device.hostname_id}}</td>
+                                </tr>
+                                {%endfor%}
+                            </tbody>
+                        </table>
                     </form>
                 </div>
             </div>   

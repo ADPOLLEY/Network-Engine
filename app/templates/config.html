@@ -16,78 +16,75 @@
 
 <!--BODY OF THE HTML BEGINS HERE-->
 
-<body>
+    <body>
 
-    <!--SIDE NAV BAR HERE, USING DIV IS IMPORTANT BECASUE THE PAGE IS LATERAL ORGANIZED NOT HORIZONTAL, ADDITIONAL INDEXES ARE ADDED AND ICONS ARE USED OFFSITE-->
+        <!--SIDE NAV BAR HERE, USING DIV IS IMPORTANT BECASUE THE PAGE IS LATERAL ORGANIZED NOT HORIZONTAL, ADDITIONAL INDEXES ARE ADDED AND ICONS ARE USED OFFSITE-->
 
-    <div class="wrapper">
-        <div class="sidebar">
-            <h2>Network Engine</h2>
-            <ul>
-                <li><a href="/"><i class="fa-solid fa-house"></i>Home</a></li>
-                <li><a href="{{ url_for('profile') }}"><i class="fa-solid fa-address-card"></i>Profile</a></li>
-                <li><a href="{{ url_for('inventory') }}"><i class="fa-solid fa-cube"></i>Inventory</a></li>
-                <!--<li><a href="{{ url_for('management') }}"><i class="fa-solid fa-cubes"></i>Management</a></li>-->
-                <li><a href="{{ url_for('show_cli') }}"><i class="fa-solid fa-code"></i>Show CLI</a></li>
-                <li><a href="{{ url_for('config') }}"><i class="fa-solid fa-screwdriver-wrench"></i>Config CLI</a></li>
-                <li><a href="{{ url_for('config_backup') }}"><i class="fa-solid fa-code-pull-request"></i>Config Backup</a></li>
-                <!--<li><a href="{{ url_for('export_backup') }}"><i class="fa-solid fa-code-compare"></i>Export Backup</a></li>-->
-                <!--<li><a href="{{ url_for('delete_backup') }}"><i class="fa-solid fa-trash"></i>Delete Backup</a></li>-->
-                <li><a href="#"><i class="fa-solid fa-map-location-dot"></i>Map</a></li>
-                <li><a href="{{ url_for('contact_us') }}"><i class="fa-solid fa-phone-flip"></i>Contact Us</a></li>
-            </ul>
-            <div class="social_media">
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://stackoverflow.com" target="_blank"><i class="fa-brands fa-stack-overflow"></i></a>
-                <a href="https://github.com/ADPOLLEY/Network-Engine" target="_blank"><i
-                        class="fa-brands fa-github"></i></a>
+        <div class="wrapper">
+            <div class="sidebar">
+                <h2>Network Engine</h2>
+                <ul>
+                    <li><a href="/"><i class="fa-solid fa-house"></i>Home</a></li>
+                    <li><a href="{{ url_for('profile') }}"><i class="fa-solid fa-address-card"></i>Profile</a></li>
+                    <li><a href="{{ url_for('inventory') }}"><i class="fa-solid fa-cube"></i>Inventory</a></li>
+                    <!--<li><a href="{{ url_for('management') }}"><i class="fa-solid fa-cubes"></i>Management</a></li>-->
+                    <li><a href="{{ url_for('show_cli') }}"><i class="fa-solid fa-code"></i>Show CLI</a></li>
+                    <li><a href="{{ url_for('config') }}"><i class="fa-solid fa-screwdriver-wrench"></i>Config CLI</a></li>
+                    <li><a href="{{ url_for('config_backup') }}"><i class="fa-solid fa-code-pull-request"></i>Config Backup</a></li>
+                    <!--<li><a href="{{ url_for('export_backup') }}"><i class="fa-solid fa-code-compare"></i>Export Backup</a></li>-->
+                    <!--<li><a href="{{ url_for('delete_backup') }}"><i class="fa-solid fa-trash"></i>Delete Backup</a></li>-->
+                    <li><a href="#"><i class="fa-solid fa-map-location-dot"></i>Map</a></li>
+                    <li><a href="{{ url_for('contact_us') }}"><i class="fa-solid fa-phone-flip"></i>Contact Us</a></li>
+                </ul>
+                <div class="social_media">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://stackoverflow.com" target="_blank"><i class="fa-brands fa-stack-overflow"></i></a>
+                    <a href="https://github.com/ADPOLLEY/Network-Engine" target="_blank"><i
+                            class="fa-brands fa-github"></i></a>
+                </div>
             </div>
-        </div>
         <div class="main_content">
-
             <div class="header">Config CLI</div>
             <div class="info">
                 <form>
                     <div>
-                      <label for="uname">Configuration Commands in seperate lines: </label>
-                      <br>
-                      <textarea
+                    <label for="uname">Configuration Commands in seperate lines: </label>
+                    <br>
+                    <textarea
                         type="text"
-                        id="showCLIinput"
-                        name="showCLIinput"
+                        id="configCLIinput"
+                        name="configCLIinput"
                         rows="4" 
                         cols="50"
                         required
                         minRows="5"
                         minlength="4"
                         ></textarea>
-                      <span class="validity"></span>
+                    <span class="validity"></span>
                     </div>
-                    <div hx-include="#checked-contacts" hx-target="#new-device">
-                        <a class="btn btn-primary" hx-put="/activate">Send Command</a>
-                    </div>
-                </form>
-                
-                <form id="checked-contacts">
-                <table class="table">
-                    <thead>
-                        <tr>
-                        <th></th>
-                        <th scope="col">Device Hostname</th>
-                        </tr>
-                    </thead>
-                    <tbody id="new-device" hx-target="closest tr" hx-swap="outerHTML swap:0.5s"> 
-                        {%for device in devices%}
-                        <tr>
-                            <td><input type='checkbox' name='ids' value='0'></td>
-                            <td>{{device.hostname_id}}</td>
-                        </tr>
-                        {%endfor%}
-                    </tbody>
-                </table>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                            <th></th>
+                            <th scope="col">Device Hostname</th>
+                            </tr>
+                        </thead>
+                        <tbody id="new-device" hx-target="closest tr" hx-swap="outerHTML swap:0.5s"> 
+                            {%for device in devices%}
+                            <tr>
+                                <td>
+                                    <button class="btn btn-primary" 
+                                        hx-put="/configcommand/{{device.hostname_id}}">
+                                        Send Command
+                                    </button>
+                                </td>
+                                <td>{{device.hostname_id}}</td>
+                            </tr>
+                            {%endfor%}
+                        </tbody>
+                    </table>
                 </form>
             </div>
-        </div>
+        </div>   
     </body>
 </html>
-

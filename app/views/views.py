@@ -1,6 +1,8 @@
 from app import app, db
 from flask import redirect, render_template, request, jsonify
 from app.models.models import Device
+from app.controller.show import show
+from app.controller.config import config
 
 @app.route("/", methods=["GET"])
 def home():
@@ -61,7 +63,6 @@ def submit():
 @app.route("/delete/<hostname_id>", methods=["DELETE"])
 def delete_device(hostname_id):
     device = db.session.query(Device).filter(Device.hostname_id == hostname_id).first()
-    #device = db.session.query(Device.hostname_id)
     db.session.delete(device)
     db.session.commit()
 
@@ -173,11 +174,31 @@ def show_cli():
     devices = db.session.query(Device).all()
     return render_template("show_cli.html", devices=devices)
 
+@app.route("/showcommand/<hostname_id>", methods=["PUT"])
+def showcommand(hostname_id):
+    devices = [hostname_id]
+    commands = request.form["showCLIinput"]
+
+    response = show(devices, commands)
+    print (response)
+
+    return ""
+
 @app.route("/config")
 def config():
     """Serve config template."""
     devices = db.session.query(Device).all()
     return render_template("config.html", devices=devices)
+
+@app.route("/configcommand/<hostname_id>", methods=["PUT"])
+def configcommand(hostname_id):
+    devices = [hostname_id]
+    commands = request.form["configCLIinput"]
+
+    response = config(devices, commands)
+    print (response)
+
+    return ""
 
 @app.route("/config_backup")
 def config_backup():

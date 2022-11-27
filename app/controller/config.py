@@ -1,7 +1,6 @@
 from flask.wrappers import Response
 from netmiko import ConnectHandler
 from paramiko.ssh_exception import SSHException
-from netmiko import AuthenticationException
 from netmiko import NetMikoTimeoutException
 
 
@@ -11,10 +10,6 @@ def config(devices, commands):
         ip_address = device["hostname_id"]
         try:
             net_connect = ConnectHandler(**device)
-        except (AuthenticationException):
-            print('Authentication failure: ' + ip_address)
-            response.update({device["host"]: ["Authentication Error."]})
-            continue
         except (NetMikoTimeoutException):
             print('Timeout to device: ' + ip_address)
             response.update({device["host"]: ["Timeout Error."]})
